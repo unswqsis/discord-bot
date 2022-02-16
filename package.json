@@ -1,0 +1,15 @@
+{
+  "name": "qsis-discord-bot",
+  "version": "1.0.0",
+  "description": "UNSW Queer Students in STEM is a social society that aims to support all LGBTQIA+ identifying STEM students and develop a comprehensive community.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "prod": "pm2 start index.js"
+  },
+  "author": "Queer Students in STEM",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "12.5.3"
+  }
+}
