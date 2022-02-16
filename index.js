@@ -15,8 +15,6 @@ const log = (line) => fs.appendFileSync("log.txt", `${line}\n`);
 
 client.on("ready", () => {
 	console.log(`Connected as ${client.user.tag}`);
-	log("test 1");
-	log("test 2");
 });
 
 client.on("guildMemberAdd", (member) => {
