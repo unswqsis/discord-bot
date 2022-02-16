@@ -11,14 +11,22 @@ const getAllowed = () => (
 	)
 );
 
+const log = (line) => fs.appendFileSync("log.txt", `${line}\n`);
+
 client.on("ready", () => {
 	console.log(`Connected as ${client.user.tag}`);
+	log("test 1");
+	log("test 2");
 });
 
 client.on("guildMemberAdd", (member) => {
-	if (!getAllowed().includes(member.user.tag)) {
+	const isAllowed = getAllowed().includes(member.user.tag);
+
+	if (!isAllowed) {
 		member.kick();
 	}
+
+	log(`${isAllowed ? "Allowed" : "Kicked"}: ${member.user.id} ${member.user.tag}`);
 });
 
 client.login(process.env.QSIS_DISCORD_TOKEN);
