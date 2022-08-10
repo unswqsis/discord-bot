@@ -7,7 +7,7 @@ const client = new Discord.Client();
 
 const getAllowed = () => (
 	fs.readFileSync("allowed.txt", "utf8").trim().split("\n").map(
-		(line) => line.trim()
+		(line) => line.trim().toLowerCase()
 	)
 );
 
@@ -18,7 +18,7 @@ client.on("ready", () => {
 });
 
 client.on("guildMemberAdd", (member) => {
-	const isAllowed = getAllowed().includes(member.user.tag);
+	const isAllowed = getAllowed().includes(member.user.tag.toLowerCase());
 
 	if (!isAllowed) {
 		member.kick();
